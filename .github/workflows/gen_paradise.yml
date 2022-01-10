@@ -1,4 +1,4 @@
-name: Run Poster Generate
+name: Run Paradise Poster Generate
 
 on:
   workflow_dispatch:
@@ -53,20 +53,20 @@ jobs:
         run: |
           python -m github_poster leetcode --leetcode_cookie  '${{ secrets.LEETCODE_COOKIE }} --me ${{ env.ME }}
 
-      - name: Run sync twitter script
-        if: contains(env.TYPE, 'twitter')
-        run: |
-          python -m github_poster twitter --twitter_user_name ${{ secrets.TWITTER_USER_NAME }} --me ${{ env.ME }} --with-animation --with-skyline
+#       - name: Run sync twitter script
+#         if: contains(env.TYPE, 'twitter')
+#         run: |
+#           python -m github_poster twitter --twitter_user_name ${{ secrets.TWITTER_USER_NAME }} --me ${{ env.ME }} --with-animation --with-skyline
 
       - name: Run sync github script
         if: contains(env.TYPE, 'github')
         run: |
           python -m github_poster github --github_user_name ${{ secrets.G_USER_NAME }} --me ${{ env.ME }} --with-animation --with-skyline
 
-      - name: Run sync bilibili script
-        if: contains(env.TYPE, 'bilibili')
-        run: |
-          python3 -m github_poster bilibili --bilibili_cookie "${{ secrets.BILIBILI_COOKIE }}" --me ${{ env.ME }}
+#       - name: Run sync bilibili script
+#         if: contains(env.TYPE, 'bilibili')
+#         run: |
+#           python3 -m github_poster bilibili --bilibili_cookie "${{ secrets.BILIBILI_COOKIE }}" --me ${{ env.ME }}
 
       - name: Run sync wakatime script
         if: contains(env.TYPE, 'wakatime')
