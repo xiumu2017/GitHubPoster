@@ -76,14 +76,14 @@ jobs:
       - name: Mv svg files to examples
         # only for me to show
         if: github.repository_owner == 'xiumu2017'
-        run: mv OUT_FOLDER/*.svg examples/ && mv OUT_FOLDER/*.stl examples/
+        run: mv OUT_FOLDER/*.svg examples/
 
       - name: Push new svg posters
         uses: github-actions-x/commit@v2.6
         with:
           github-token: ${{ secrets.G_T }}
-          commit-message: "Make new poster"
-          files: examples OUT_FOLDER
+          commit-message: "Make new poster everyday"
+          files: examples
           rebase: "true"
           name: ${{ env.GITHUB_NAME }}
           email: ${{ env.GITHUB_EMAIL }}
